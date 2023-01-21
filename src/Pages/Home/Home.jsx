@@ -21,6 +21,11 @@ import articles from "../../assets/images/articles.jpeg";
 import inGYM from "../../assets/images/inGYM.jpeg";
 import online from "../../assets/images/online.jpeg";
 
+import { BsArrowRight } from "react-icons/bs";
+import { BsArrowLeft } from "react-icons/bs";
+
+// import { IoIosFitness } from 'react-icons/wi';
+
 export default function Home() {
   return (
     <>
@@ -30,7 +35,7 @@ export default function Home() {
         style={{ height: `95vh` }}
       >
         <video loop autoPlay muted id="header-video">
-            <source src= {video} type="video/mp4" />
+          <source src={video} type="video/mp4" />
         </video>
         <div className="overlay"></div>
         <h1
@@ -45,11 +50,11 @@ export default function Home() {
       <div className="container-fluid bg-dark text-light px-4 py-4">
         <div className="row pb-5" style={{ borderBottom: `4px solid #dc3545` }}>
           <div className="col-md-7">
-            <p>image</p>
+            <img src={online} className="w-100" />
           </div>
-          <div className="col-md-5">
+          <div className="col-md-5 d-flex flex-column justify-content-center">
             <h3 className="mb-4">
-              Coach <span className="text-danger">ESLAM</span>
+              Coach <span className="text-danger fw-bold">ESLAM</span>
             </h3>
             <p className="lead">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam
@@ -61,9 +66,9 @@ export default function Home() {
           </div>
         </div>
         <div className="row pt-5">
-          <div className="col-md-5">
+          <div className="col-md-5 d-flex flex-column justify-content-center">
             <h3>
-              Coach <span className="text-danger">SAMA</span>
+              Coach <span className="text-danger fw-bold">SAMA</span>
             </h3>
             <p className="lead py-4">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam
@@ -74,7 +79,7 @@ export default function Home() {
             </p>
           </div>
           <div className="col-md-7">
-            <p>image</p>
+            <img src={inGYM} className="w-100" />
           </div>
         </div>
       </div>
@@ -299,8 +304,16 @@ export default function Home() {
       </div>
 
       {/* ------------ Products & Articles ------- */}
-      <div className="container-fluid" style={{ height: `90vh` }}>
-        <div className="row h-100">
+      <div className="container-fluid">
+        <div className="row p-5 bg-dark">
+          <h3
+            className="px-3 py-5 fw-bold text-uppercase text-light fs-1 mb-0"
+            style={{ borderLeft: `5px solid #aa0000` }}
+          >
+            Take care of your <span style={{ color: `#aa0000` }}>body</span>
+          </h3>
+        </div>
+        <div className="row" style={{ height: `90vh` }}>
           <div
             className="col-md-6 d-flex justify-content-center align-items-center position-relative py-5"
             style={{
@@ -313,9 +326,8 @@ export default function Home() {
               className="text-dark w-75 py-5 text-center"
               style={{ background: `rgba(255, 255, 255, .7)`, zIndex: `2` }}
             >
-              <h2 className="fs-3">Products</h2>
               <Link to={`/products`} style={{ textDecoration: "none" }}>
-                <button className="btn-1 fw-bold fs-5">MORE</button>
+                <button className="btn-1 fw-bold fs-5">Products</button>
               </Link>
             </div>
           </div>
@@ -332,9 +344,9 @@ export default function Home() {
               className="text-dark w-75 py-5 text-center"
               style={{ background: `rgba(255, 255, 255, .7)`, zIndex: `2` }}
             >
-              <h2 className="fs-3">Articles</h2>
-              <Link to={`/products`} style={{ textDecoration: "none" }}>
-                <button className="btn-2 fw-bold fs-5">MORE</button>
+              {/* <IoIosFitness className="fs-1"/> */}
+              <Link to={`/articles`} style={{ textDecoration: "none" }}>
+                <button className="btn-2 fw-bold fs-5">Articles</button>
               </Link>
             </div>
           </div>
@@ -343,21 +355,93 @@ export default function Home() {
 
       {/* ---------------- Testimonials ---------- */}
       <div
-        className="testi container-fluid d-flex justify-content-center align-items-center"
-        style={{ backgroundImage: `url(${back})`, height: `70vh` }}
+        className="container-fluid d-flex justify-content-center py-5"
+        style={{ position: `relative` }}
       >
-        <div className="overlay2"></div>
-        <div
-          className="bg-light w-50 text-center py-5 position-relative"
-          style={{ zIndex: `2` }}
-        >
-          Hello
+        <video loop autoPlay muted id="header-video">
+          <source src={video} type="video/mp4" />
+        </video>
+        <div className="overlay"></div>
+
+        <div className="row p-5 w-100" style={{ zIndex: `2` }}>
+          <div className="col-md-4 d-flex align-items-center">
+            <h3
+              className="px-3 py-5 fw-bold text-uppercase fs-1"
+              style={{ borderLeft: `5px solid #aa0000`, color: `#aa0000` }}
+            >
+              What Our Parteners Say
+            </h3>
+          </div>
+          <div
+            className="col-md-8 d-flex align-items-center px-3 py-5"
+            style={{ background: `rgba(255, 255, 255, .7)` }}
+          >
+            <button className="btn bg-danger text-light pre-testi ">
+              <BsArrowLeft className="fs-2" style={{ zIndex: `10` }} />
+            </button>
+
+            <Swiper
+              navigation={{
+                nextEl: ".next-testi",
+                prevEl: ".pre-testi",
+              }}
+              modules={[Navigation]}
+              loop={true}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <p
+                  className="p-5 bg-light m-auto text-center rounded"
+                  style={{ width: `95%` }}
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Voluptate nobis quisquam repellendus fugit odit vitae mollitia
+                  sunt quis iure aliquid corporis dicta reiciendis laborum
+                  nihil, at tempore veniam adipisci omnis.
+                </p>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <p
+                  className="p-5 bg-light m-auto text-center rounded"
+                  style={{ width: `95%` }}
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Voluptate nobis quisquam repellendus fugit odit vitae mollitia
+                </p>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <p
+                  className="p-5 bg-light m-auto text-center rounded"
+                  style={{ width: `95%` }}
+                >
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Voluptate nobis quisquam repellendus fugit odit vitae mollitia
+                  sunt quis iure aliquid corporis dicta reiciendis laborum
+                  nihil.
+                </p>
+              </SwiperSlide>
+            </Swiper>
+
+            <button className="btn bg-danger text-light next-testi">
+              <BsArrowRight className="fs-2" />
+            </button>
+          </div>
         </div>
       </div>
 
       {/* ------------ Online & Offline Training ------- */}
-      <div className="container-fluid" style={{ height: `90vh` }}>
-        <div className="row h-100">
+      <div className="container-fluid">
+        <div className="row p-5 bg-dark">
+          <h3
+            className="px-3 py-5 fw-bold text-uppercase text-light fs-1 mb-0"
+            style={{ borderLeft: `5px solid #aa0000` }}
+          >
+            Ready to Work With Coach <span style={{ color: `#aa0000` }}>Eslam?</span>
+          </h3>
+        </div>
+        <div className="row" style={{ height: `90vh` }}>
           <div
             className="col-md-6 d-flex justify-content-center align-items-center position-relative py-5"
             style={{
@@ -370,9 +454,8 @@ export default function Home() {
               className="text-dark w-75 py-5 text-center"
               style={{ background: `rgba(255, 255, 255, .7)`, zIndex: `2` }}
             >
-              <h2 className="fs-3">in GYM</h2>
               <Link to={`/products`} style={{ textDecoration: "none" }}>
-                <button className="btn-1 fw-bold fs-5">MORE</button>
+                <button className="btn-1 fw-bold fs-5">in GYM</button>
               </Link>
             </div>
           </div>
@@ -389,9 +472,8 @@ export default function Home() {
               className="text-dark w-75 py-5 text-center"
               style={{ background: `rgba(255, 255, 255, .7)`, zIndex: `2` }}
             >
-              <h2 className="fs-3">Online Training</h2>
-              <Link to={`/products`} style={{ textDecoration: "none" }}>
-                <button className="btn-2 fw-bold fs-5">MORE</button>
+              <Link to={`/packages&consultaion`} style={{ textDecoration: "none" }}>
+                <button className="btn-2 fw-bold fs-5">Online Training</button>
               </Link>
             </div>
           </div>

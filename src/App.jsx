@@ -11,6 +11,7 @@ import Articles from "./Pages/Articles/Articles";
 import Products from "./Pages/Products/Products";
 
 import { Route, Routes } from "react-router-dom";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/articles" element={<Articles />} />
         <Route path="/products" element={<Products />} />
       </Routes>
+      <Footer />
     </>
   );
 }

@@ -9,7 +9,7 @@ export default function DefaultNavbar() {
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">Coach Eslam</Navbar.Brand>
+          <Navbar.Brand href="#home">Coach <span className="text-danger fw-bold">ELAM</span></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">

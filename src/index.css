@@ -28,7 +28,7 @@
     background-color: #aa0000;
     color: #fff;
     padding: 10px 40px 10px 40px ;
-    border: 1px solid #aa0000;
+    border: 2px solid #aa0000;
 }
 
 .btn-1:hover
@@ -42,7 +42,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
     padding: 10px 40px 10px 40px ;
-    border: 1px solid #000;
+    border: 2px solid #000;
 }
 
 .btn-2:hover
@@ -72,13 +72,23 @@
   right: 0;
 }
 
-
 /* ============== Success Story ========== */
-.success, .testi {
+.success {
   position: relative;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
-  
+
+/* ============= insta images ========= */
+.insta-img
+{
+  transition: all .3s ease-out;
+}
+
+.insta-img:hover
+{
+  transform: scale(1.03);
+  cursor: pointer;
+}

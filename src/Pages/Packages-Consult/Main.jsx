@@ -7,6 +7,23 @@ import online from "../../assets/images/online.jpeg";
 export default function About() {
   return (
     <>
+      {/* ---------- Header ------------ */}
+      <div
+        className="bg-primary d-flex align-items-center justify-content-center position-relative"
+        style={{
+          background: `url(${inGYM}) no-repeat center center/cover`,
+          height: `95vh`,
+        }}
+      >
+        <div className="overlay"></div>
+        <h1
+          className="text-uppercase text-center text-light fw-bold fs-1 position-relative"
+          style={{ zIndex: `2` }}
+        >
+          #TRAIN
+        </h1>
+      </div>
+
       {/* =============== Switch =============== */}
       <div className="container-fluid" style={{ height: `70vh` }}>
         <div className="row h-100">
@@ -41,7 +58,9 @@ export default function About() {
               style={{ background: `rgba(255, 255, 255, .7)`, zIndex: `2` }}
             >
               <NavLink to="consultation" style={{ textDecoration: "none" }}>
-                <button className="btn-2 fw-bold fs-5">Consult the Coach</button>
+                <button className="btn-2 fw-bold fs-5">
+                  Consult the Coach
+                </button>
               </NavLink>
             </div>
           </div>
@@ -49,7 +68,7 @@ export default function About() {
       </div>
 
       {/* ================ Content ============ */}
-      <div className="my-5">
+      <div className="bg-dark">
         <Outlet />
       </div>
     </>
