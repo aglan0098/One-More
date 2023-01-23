@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -23,8 +22,7 @@ import online from "../../assets/images/online.jpeg";
 
 import { BsArrowRight } from "react-icons/bs";
 import { BsArrowLeft } from "react-icons/bs";
-
-// import { IoIosFitness } from 'react-icons/wi';
+import Split from "../../Components/Split";
 
 export default function Home() {
   return (
@@ -313,44 +311,14 @@ export default function Home() {
             Take care of your <span style={{ color: `#aa0000` }}>body</span>
           </h3>
         </div>
-        <div className="row" style={{ height: `90vh` }}>
-          <div
-            className="col-md-6 d-flex justify-content-center align-items-center position-relative py-5"
-            style={{
-              background: `url(${products}) no-repeat center center/cover`,
-              borderRight: `5px solid #fff`,
-            }}
-          >
-            <div className="overlay"></div>
-            <div
-              className="text-dark w-75 py-5 text-center"
-              style={{ background: `rgba(255, 255, 255, .7)`, zIndex: `2` }}
-            >
-              <Link to={`/products`} style={{ textDecoration: "none" }}>
-                <button className="btn-1 fw-bold fs-5">Products</button>
-              </Link>
-            </div>
-          </div>
-
-          <div
-            className="col-md-6 d-flex justify-content-center align-items-center position-relative py-5"
-            style={{
-              background: `url(${articles}) no-repeat center center/cover`,
-              borderLeft: `5px solid #fff`,
-            }}
-          >
-            <div className="overlay"></div>
-            <div
-              className="text-dark w-75 py-5 text-center"
-              style={{ background: `rgba(255, 255, 255, .7)`, zIndex: `2` }}
-            >
-              {/* <IoIosFitness className="fs-1"/> */}
-              <Link to={`/articles`} style={{ textDecoration: "none" }}>
-                <button className="btn-2 fw-bold fs-5">Articles</button>
-              </Link>
-            </div>
-          </div>
-        </div>
+        <Split
+          leftTitle={"Products"}
+          leftImg={products}
+          leftLink={"/products"}
+          rightTitle={"Articles"}
+          rightImg={articles}
+          rightLink={"/articles"}
+        />
       </div>
 
       {/* ---------------- Testimonials ---------- */}
@@ -438,46 +406,18 @@ export default function Home() {
             className="px-3 py-5 fw-bold text-uppercase text-light fs-1 mb-0"
             style={{ borderLeft: `5px solid #aa0000` }}
           >
-            Ready to Work With Coach <span style={{ color: `#aa0000` }}>Eslam?</span>
+            Ready to Work With Coach{" "}
+            <span style={{ color: `#aa0000` }}>Eslam?</span>
           </h3>
         </div>
-        <div className="row" style={{ height: `90vh` }}>
-          <div
-            className="col-md-6 d-flex justify-content-center align-items-center position-relative py-5"
-            style={{
-              background: `url(${inGYM}) no-repeat center center/cover`,
-              borderRight: `5px solid #fff`,
-            }}
-          >
-            <div className="overlay"></div>
-            <div
-              className="text-dark w-75 py-5 text-center"
-              style={{ background: `rgba(255, 255, 255, .7)`, zIndex: `2` }}
-            >
-              <Link to={`/products`} style={{ textDecoration: "none" }}>
-                <button className="btn-1 fw-bold fs-5">in GYM</button>
-              </Link>
-            </div>
-          </div>
-
-          <div
-            className="col-md-6 d-flex justify-content-center align-items-center position-relative py-5"
-            style={{
-              background: `url(${online}) no-repeat center center/cover`,
-              borderLeft: `5px solid #fff`,
-            }}
-          >
-            <div className="overlay"></div>
-            <div
-              className="text-dark w-75 py-5 text-center"
-              style={{ background: `rgba(255, 255, 255, .7)`, zIndex: `2` }}
-            >
-              <Link to={`/packages&consultaion`} style={{ textDecoration: "none" }}>
-                <button className="btn-2 fw-bold fs-5">Online Training</button>
-              </Link>
-            </div>
-          </div>
-        </div>
+        <Split
+          leftTitle={"In GYM"}
+          leftImg={inGYM}
+          leftLink={"/ingym"}
+          rightTitle={"Online Training"}
+          rightImg={online}
+          rightLink={"/packages&consultaion"}
+        />
       </div>
     </>
   );

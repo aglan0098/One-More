@@ -1,26 +1,13 @@
 import React from "react";
 import inGYM from "../../assets/images/inGYM.jpeg";
 import online from "../../assets/images/online.jpeg";
+import Header from "../../Components/Header";
 
 export default function Articles() {
   return (
     <>
       {/* ---------- Header ------------ */}
-      <div
-        className="bg-primary d-flex align-items-center justify-content-center position-relative"
-        style={{
-          background: `url(${inGYM}) no-repeat center center/cover`,
-          height: `95vh`,
-        }}
-      >
-        <div className="overlay"></div>
-        <h1
-          className="text-uppercase text-center text-light fw-bold fs-1 position-relative"
-          style={{ zIndex: `2` }}
-        >
-          #READ
-        </h1>
-      </div>
+      <Header title={"#READ"} img={inGYM} />
 
       {/* =========== Content ========= */}
       <div className="container-fluid d-flex py-5 bg-success">

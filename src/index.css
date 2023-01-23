@@ -23,32 +23,28 @@
   z-index: 1;
 }
 
-.btn-1
-{
-    background-color: #aa0000;
-    color: #fff;
-    padding: 10px 40px 10px 40px ;
-    border: 2px solid #aa0000;
+.btn-1 {
+  background-color: #aa0000;
+  color: #fff;
+  padding: 10px 40px 10px 40px;
+  border: 2px solid #aa0000;
 }
 
-.btn-1:hover
-{
-    background-color: #fff;
-    color: #aa0000;
+.btn-1:hover {
+  background-color: #fff;
+  color: #aa0000;
 }
 
-.btn-2
-{
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 10px 40px 10px 40px ;
-    border: 2px solid #000;
+.btn-2 {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 40px 10px 40px;
+  border: 2px solid #000;
 }
 
-.btn-2:hover
-{
-    background-color: #fff;
-    color: #000;
+.btn-2:hover {
+  background-color: #fff;
+  color: #000;
 }
 
 .section-title::before {
@@ -61,8 +57,7 @@
 }
 
 /* ================ Header Video ================ */
-#header-video
-{
+#header-video {
   position: absolute;
   object-fit: cover;
   width: 100%;
@@ -82,13 +77,34 @@
 }
 
 /* ============= insta images ========= */
-.insta-img
-{
-  transition: all .3s ease-out;
+.insta-img {
+  transition: all 0.3s ease-out;
 }
 
-.insta-img:hover
-{
+.insta-img:hover {
   transform: scale(1.03);
   cursor: pointer;
+}
+
+/* ============= InGYM Page ========= */
+.reason {
+  position: relative;
+  font-weight: 900 !important;
+  font-size: 3em;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  /* width: 50%; */
+}
+
+.reason .text::after {
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  bottom: 0;
+  margin: auto auto;
+  content: "";
+  display: block;
+  background-color: #e40032;
+  height: 8px;
 }
