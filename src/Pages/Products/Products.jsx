@@ -1,22 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { client } from "../../../lib/client";
+import { urlFor } from "../../../lib/client";
+
 import inGYM from "../../assets/images/inGYM.jpeg";
 import online from "../../assets/images/online.jpeg";
 import Header from "../../Components/Header";
 
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../redux/cartSlice';
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartSlice";
 
 export default function Products() {
-
   const dispatch = useDispatch();
   const add = () => {
-    dispatch(addToCart({
-      title: "Aglan",
-      count: 1,
-      price: 10,
-      orderPrice: 10,
-    }));
-  }
+    dispatch(
+      addToCart({
+        title: "Aglan",
+        count: 1,
+        price: 10,
+        orderPrice: 10,
+      })
+    );
+  };
+
+  // ============== connect with sanity ===========
+  const [productss, setProductss] = useState(null);
+
+  useEffect(() => {
+    client
+      .fetch('*[_type == "product"]')
+      .then((data) => setProductss(data))
+      .catch(console.error);
+  }, []);
 
   return (
     <>
@@ -32,7 +46,9 @@ export default function Products() {
             <div className="col bg-info text-center">
               <img src={online} className="w-100" />
               <h4 className="py-2">title</h4>
-              <button className='btn btn-success' onClick={() => add()}>Add</button>
+              <button className="btn btn-success" onClick={() => add()}>
+                Add
+              </button>
             </div>
 
             <div className="col bg-info text-center">
@@ -70,6 +86,17 @@ export default function Products() {
           </div>
         </div>
       </div>
+    
+      {/* ============= Sanity ============== */}
+      {productss &&
+        productss.map((product) => (
+          <>
+            <h2>Moahmed Aglan</h2>
+            <p>{product.name}</p>
+            <p>{product.details}</p>
+            <img src={urlFor(product.image[0])} />
+          </>
+        ))}
     </>
-  )
+  );
 }
