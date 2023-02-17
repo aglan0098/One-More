@@ -1,4 +1,71 @@
-/* ======== General ============ */
+@import url("https://fonts.cdnfonts.com/css/hackney");
+
+* {
+  transition: all 0.3s;
+}
+
+:root {
+  --red-color: #9d0208;
+  --black-color: #000;
+}
+
+/* ========== Base =========== */
+li {
+  list-style: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #a7a5a5;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  color: #fff;
+}
+
+/* =============== General Classes =============== */
+/* ---------- font -------- */
+.hack-font {
+  font-family: "Hackney", "sans-serif";
+}
+
+.hack-font-md {
+  font-family: "Hackney", "sans-serif";
+  font-size: 3rem;
+}
+
+.hack-font-lg {
+  font-family: "Hackney", "sans-serif";
+  font-size: 5rem;
+}
+
+/* --------- bg ---------- */
+.gray {
+  background-color: #ddd;
+}
+
+.gray-dark {
+  background-color: #888;
+}
+
+.dark {
+  background-color: var(--black-color);
+}
+
+.red {
+  color: #aa0000;
+}
+
+.bg-red {
+  background-color: #69090c;
+}
+
+.border-left {
+  border-left: 5px solid #aa0000;
+}
+
 .overlay {
   position: absolute;
   width: 100%;
@@ -8,7 +75,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1;
+  z-index: 2;
 }
 
 .overlay2 {
@@ -24,15 +91,15 @@
 }
 
 .btn-1 {
-  background-color: #aa0000;
+  background-color: var(--red-color);
   color: #fff;
   padding: 10px 40px 10px 40px;
-  border: 2px solid #aa0000;
+  border: 2px solid var(--red-color);
 }
 
 .btn-1:hover {
   background-color: #fff;
-  color: #aa0000;
+  color: var(--red-color);
 }
 
 .btn-2 {
@@ -56,6 +123,26 @@
   border-bottom: 4px solid #dd0a17;
 }
 
+/* =========== NavBar ================ */
+#navbar {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background-color: var(--black-color);
+  padding: 0px;
+}
+
+#navbar .nav-link {
+  cursor: pointer;
+}
+
+#navbar .nav-link:hover:not(:last-child) {
+  background-color: var(--red-color);
+}
+
+.active {
+  background-color: var(--red-color);
+}
 /* ================ Header Video ================ */
 #header-video {
   position: absolute;
@@ -90,21 +177,96 @@
 .reason {
   position: relative;
   font-weight: 900 !important;
-  font-size: 3em;
+  font-size: 5em;
   letter-spacing: 0.05em;
   line-height: 1.2;
   margin-bottom: 0.5em;
-  /* width: 50%; */
+  font-family: "Hackney", "sans-serif";
+}
+
+@media screen and (max-width: 768px) {
+  .reason {
+    font-size: 3rem;
+  }
+}
+
+.reason .text {
+  position: relative;
 }
 
 .reason .text::after {
   position: absolute;
   width: 100%;
-  top: 40%;
+  top: 20%;
   bottom: 0;
   margin: auto auto;
   content: "";
   display: block;
   background-color: #e40032;
   height: 8px;
+}
+
+/* =========== Products & Articles ========= */
+.filter-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.filterBtn {
+  margin: 0 5px;
+}
+
+@media screen and (min-width: 992px) {
+  .filter-container {
+    display: block;
+  }
+  .filterBtn {
+    width: 100%;
+    margin: 0px;
+  }
+}
+
+.bd-grid {
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .bd-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.productCard .detailsBtn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 12px;
+  border-radius: 0px 9px;
+  color: var(--red-color);
+  border: 2px solid var(--red-color);
+  transition: all 0.4s;
+}
+
+.productCard .detailsBtn:hover {
+  background-color: var(--red-color);
+  color: #fff;
+}
+
+.productCard .cartBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 12px;
+  border-radius: 9px 0px;
+  color: var(--black-color);
+  border: 2px solid var(--black-color);
+  transition: all 0.4s;
+}
+
+.productCard .cartBtn:hover {
+  background-color: var(--black-color);
+  color: #fff;
 }

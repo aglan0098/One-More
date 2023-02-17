@@ -9,12 +9,12 @@ export default function Header(props) {
         className="bg-primary d-flex align-items-center justify-content-center position-relative"
         style={{
           background: `url(${img}) no-repeat center center/cover`,
-          height: `95vh`,
+          height: `100vh`,
         }}
       >
         <div className="overlay"></div>
         <h1
-          className="text-uppercase text-center text-light fw-bold fs-1 position-relative"
+          className="hack-font-lg text-uppercase text-center text-light fw-bold position-relative"
           style={{ zIndex: `2` }}
         >
           {title}

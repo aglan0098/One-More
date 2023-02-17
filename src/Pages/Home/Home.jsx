@@ -1,4 +1,6 @@
 import React from "react";
+import NavBar from "../../Components/NavBar";
+import Split from "../../Components/Split";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -6,8 +8,6 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
 import video from "../../assets/images/videoplayback.mp4";
-
-import arm from "../../assets/images/left.png";
 import back from "../../assets/images/background.jpg";
 
 // ------- success images ---------
@@ -20,24 +20,26 @@ import articles from "../../assets/images/articles.jpeg";
 import inGYM from "../../assets/images/inGYM.jpeg";
 import online from "../../assets/images/online.jpeg";
 
+// ------- Icons ---------
 import { BsArrowRight } from "react-icons/bs";
 import { BsArrowLeft } from "react-icons/bs";
-import Split from "../../Components/Split";
 
 export default function Home() {
   return (
     <>
+      <NavBar />
       {/* ---------- Header ------------ */}
       <div
         className="bg-primary d-flex align-items-center justify-content-center position-relative"
-        style={{ height: `95vh` }}
+        style={{ height: `100vh` }}
+        id="home"
       >
         <video loop autoPlay muted id="header-video">
           <source src={video} type="video/mp4" />
         </video>
         <div className="overlay"></div>
         <h1
-          className="text-uppercase text-center text-light fw-bold fs-1 position-relative"
+          className="hack-font-lg text-uppercase text-center text-light fw-bold position-relative"
           style={{ zIndex: `2` }}
         >
           Do MOre
@@ -45,13 +47,13 @@ export default function Home() {
       </div>
 
       {/* -----------About ------------ */}
-      <div className="container-fluid bg-dark text-light px-4 py-4">
+      <div className="container-fluid dark text-light px-4 py-4" id="about">
         <div className="row pb-5" style={{ borderBottom: `4px solid #dc3545` }}>
           <div className="col-md-7">
             <img src={online} className="w-100" />
           </div>
           <div className="col-md-5 d-flex flex-column justify-content-center">
-            <h3 className="mb-4">
+            <h3 className="mb-4 hack-font-md">
               Coach <span className="text-danger fw-bold">ESLAM</span>
             </h3>
             <p className="lead">
@@ -65,7 +67,7 @@ export default function Home() {
         </div>
         <div className="row pt-5">
           <div className="col-md-5 d-flex flex-column justify-content-center">
-            <h3>
+            <h3 className="hack-font-md">
               Coach <span className="text-danger fw-bold">SAMA</span>
             </h3>
             <p className="lead py-4">
@@ -85,6 +87,7 @@ export default function Home() {
       {/* -------------success stories ---------- */}
       <div
         className="success container-fluid py-5"
+        id="stories"
         style={{
           backgroundImage: `url(${back})`,
           borderTop: `4px solid #dc3545`,
@@ -92,25 +95,19 @@ export default function Home() {
       >
         <div className="overlay2"></div>
         <div className="position-relative" style={{ zIndex: `2` }}>
-          <h4 className="mb-4 pb-3 text-light fs-2 fw-bold ms-3 section-title position-relative">
+          <h4 className="mb-4 pb-3 text-light hack-font-md fw-bold ms-3 section-title position-relative">
             Success Stories
           </h4>
 
           <div className="d-flex justify-content-around align-items-center w-50 m-auto my-2 py-2 px-4">
             <div>
-              <button className="btn-1 prev d-flex justify-content-center align-items-center">
-                {/* <img src={arm} className="w-25" /> */}
+              <button className="btn-1 prev hack-font">
                 <span className="fs-3">Prev</span>
               </button>
             </div>
             <div>
-              <button className="btn-2 next d-flex justify-content-center align-items-center">
+              <button className="btn-2 next hack-font">
                 <span className="fs-3">Next</span>
-                {/* <img
-                  src={arm}
-                  className="w-25"
-                  style={{ transform: `scaleX(-1)` }}
-                /> */}
               </button>
             </div>
           </div>
@@ -126,7 +123,7 @@ export default function Home() {
           >
             <SwiperSlide>
               <div className="row gap-3 py-5 px-5">
-                <div className="col bg-light rounded py-3">
+                <div className="col-md bg-light rounded py-3">
                   <div
                     className="d-flex justify-content-between"
                     style={{ borderBottom: `3px solid #aa0000` }}
@@ -143,7 +140,7 @@ export default function Home() {
                   </div>
                   <img src={img1} className="w-100" />
                 </div>
-                <div className="col bg-light rounded py-3">
+                <div className="col-md bg-light rounded py-3">
                   <div
                     className="d-flex justify-content-between"
                     style={{ borderBottom: `3px solid #aa0000` }}
@@ -162,7 +159,7 @@ export default function Home() {
                   </div>
                   <img src={img2} className="w-100" />
                 </div>
-                <div className="col bg-light rounded py-3">
+                <div className="col-md bg-light rounded py-3">
                   <div
                     className="d-flex justify-content-between"
                     style={{ borderBottom: `3px solid #aa0000` }}
@@ -184,7 +181,7 @@ export default function Home() {
 
             <SwiperSlide>
               <div className="row gap-3 py-5 px-5">
-                <div className="col bg-light rounded py-3">
+                <div className="col-md bg-light rounded py-3">
                   <div
                     className="d-flex justify-content-between"
                     style={{ borderBottom: `3px solid #aa0000` }}
@@ -201,7 +198,7 @@ export default function Home() {
                   </div>
                   <img src={img1} className="w-100" />
                 </div>
-                <div className="col bg-light rounded py-3">
+                <div className="col-md bg-light rounded py-3">
                   <div
                     className="d-flex justify-content-between"
                     style={{ borderBottom: `3px solid #aa0000` }}
@@ -220,7 +217,7 @@ export default function Home() {
                   </div>
                   <img src={img2} className="w-100" />
                 </div>
-                <div className="col bg-light rounded py-3">
+                <div className="col-md bg-light rounded py-3">
                   <div
                     className="d-flex justify-content-between"
                     style={{ borderBottom: `3px solid #aa0000` }}
@@ -242,7 +239,7 @@ export default function Home() {
 
             <SwiperSlide>
               <div className="row gap-3 py-5 px-5">
-                <div className="col bg-light rounded py-3">
+                <div className="col-md bg-light rounded py-3">
                   <div
                     className="d-flex justify-content-between"
                     style={{ borderBottom: `3px solid #aa0000` }}
@@ -259,7 +256,7 @@ export default function Home() {
                   </div>
                   <img src={img1} className="w-100" />
                 </div>
-                <div className="col bg-light rounded py-3">
+                <div className="col-md bg-light rounded py-3">
                   <div
                     className="d-flex justify-content-between"
                     style={{ borderBottom: `3px solid #aa0000` }}
@@ -278,7 +275,7 @@ export default function Home() {
                   </div>
                   <img src={img2} className="w-100" />
                 </div>
-                <div className="col bg-light rounded py-3">
+                <div className="col-md bg-light rounded py-3">
                   <div
                     className="d-flex justify-content-between"
                     style={{ borderBottom: `3px solid #aa0000` }}
@@ -302,23 +299,23 @@ export default function Home() {
       </div>
 
       {/* ------------ Products & Articles ------- */}
-      <div className="container-fluid">
-        <div className="row p-5 bg-dark">
-          <h3
-            className="px-3 py-5 fw-bold text-uppercase text-light fs-1 mb-0"
-            style={{ borderLeft: `5px solid #aa0000` }}
-          >
-            Take care of your <span style={{ color: `#aa0000` }}>body</span>
+      <div className="container-fluid" id="products-articles">
+        <div className="row p-5 dark">
+          <h3 className="hack-font-lg px-3 py-5 fw-bold text-uppercase text-light mb-0 border-left">
+            Take care of your <span className="red">body</span>
           </h3>
         </div>
         <Split
           leftTitle={"Products"}
           leftImg={products}
           leftLink={"/products"}
+          leftIcon={"capsule"}
           rightTitle={"Articles"}
           rightImg={articles}
           rightLink={"/articles"}
+          rightIcon={"news"}
         />
+        <div className="row p-5 dark"></div>
       </div>
 
       {/* ---------------- Testimonials ---------- */}
@@ -330,21 +327,14 @@ export default function Home() {
           <source src={video} type="video/mp4" />
         </video>
         <div className="overlay"></div>
-
         <div className="row p-5 w-100" style={{ zIndex: `2` }}>
           <div className="col-md-4 d-flex align-items-center">
-            <h3
-              className="px-3 py-5 fw-bold text-uppercase fs-1"
-              style={{ borderLeft: `5px solid #aa0000`, color: `#aa0000` }}
-            >
+            <h3 className="hack-font-md px-3 py-5 fw-bold text-uppercase border-left red">
               What Our Parteners Say
             </h3>
           </div>
-          <div
-            className="col-md-8 d-flex align-items-center px-3 py-5"
-            style={{ background: `rgba(255, 255, 255, .7)` }}
-          >
-            <button className="btn bg-danger text-light pre-testi ">
+          <div className="col-md-8 d-flex align-items-center px-3 py-5 fs-5">
+            <button className="d-none d-lg-block btn-1 pre-testi">
               <BsArrowLeft className="fs-2" style={{ zIndex: `10` }} />
             </button>
 
@@ -358,41 +348,60 @@ export default function Home() {
               className="mySwiper"
             >
               <SwiperSlide>
-                <p
-                  className="p-5 bg-light m-auto text-center rounded"
-                  style={{ width: `95%` }}
+                <div
+                  className="p-5 pb-2 m-auto text-center rounded"
+                  style={{
+                    width: `95%`,
+                    background: `rgba(255, 255, 255, .5)`,
+                  }}
                 >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptate nobis quisquam repellendus fugit odit vitae mollitia
-                  sunt quis iure aliquid corporis dicta reiciendis laborum
-                  nihil, at tempore veniam adipisci omnis.
-                </p>
+                  <q>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptate nobis quisquam repellendus fugit odit vitae
+                    mollitia sunt quis iure aliquid corporis dicta reiciendis
+                    laborum nihil, at tempore veniam adipisci omnis.
+                  </q>
+                  <p className="text-end mt-4 fst-italic">- Mohamed Aglan</p>
+                </div>
               </SwiperSlide>
 
               <SwiperSlide>
-                <p
-                  className="p-5 bg-light m-auto text-center rounded"
-                  style={{ width: `95%` }}
+                <div
+                  className="p-5 pb-2 m-auto text-center rounded"
+                  style={{
+                    width: `95%`,
+                    background: `rgba(255, 255, 255, .5)`,
+                  }}
                 >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptate nobis quisquam repellendus fugit odit vitae mollitia
-                </p>
+                  <q>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptate nobis quisquam repellendus fugit odit vitae
+                    mollitia
+                  </q>
+                  <p className="text-end mt-4 fst-italic">- Abdelrazik</p>
+                </div>
               </SwiperSlide>
 
               <SwiperSlide>
-                <p
-                  className="p-5 bg-light m-auto text-center rounded"
-                  style={{ width: `95%` }}
+                <div
+                  className="p-5 pb-2 m-auto text-center rounded"
+                  style={{
+                    width: `95%`,
+                    background: `rgba(255, 255, 255, .5)`,
+                  }}
                 >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptate nobis quisquam repellendus fugit odit vitae mollitia
-                  sunt quis iure aliquid corporis dicta reiciendis laborum
-                  nihil.
-                </p>
+                  <q>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptate nobis quisquam repellendus fugit odit vitae
+                    mollitia sunt quis iure aliquid corporis dicta reiciendis
+                    laborum nihil.
+                  </q>
+                  <p className="text-end mt-4 fst-italic">- Mina</p>
+                </div>
               </SwiperSlide>
             </Swiper>
 
-            <button className="btn bg-danger text-light next-testi">
+            <button className="d-none d-lg-block btn-1 next-testi">
               <BsArrowRight className="fs-2" />
             </button>
           </div>
@@ -400,23 +409,22 @@ export default function Home() {
       </div>
 
       {/* ------------ Online & Offline Training ------- */}
-      <div className="container-fluid">
-        <div className="row p-5 bg-dark">
-          <h3
-            className="px-3 py-5 fw-bold text-uppercase text-light fs-1 mb-0"
-            style={{ borderLeft: `5px solid #aa0000` }}
-          >
-            Ready to Work With Coach{" "}
-            <span style={{ color: `#aa0000` }}>Eslam?</span>
+      <div className="container-fluid" id="packages">
+        <div className="row p-5 dark">
+          <h3 className="hack-font-lg px-3 py-5 fw-bold text-uppercase text-light mb-0 border-left">
+            Ready to Work With Coach
+            <span className="red"> Eslam?</span>
           </h3>
         </div>
         <Split
           leftTitle={"In GYM"}
           leftImg={inGYM}
           leftLink={"/ingym"}
-          rightTitle={"Online Training"}
+          leftIcon={"dumbbell"}
+          rightTitle={"Online"}
           rightImg={online}
-          rightLink={"/packages&consultaion"}
+          rightLink={"/packages&consultaion/packages"}
+          rightIcon={"desktop"}
         />
       </div>
     </>

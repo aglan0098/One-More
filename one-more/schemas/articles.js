@@ -1,6 +1,6 @@
 export default {
-    name: 'product',
-    title: 'Product',
+    name: 'articles',
+    title: 'Articles',
     type: 'document',
     fields: [
         {
@@ -13,18 +13,13 @@ export default {
             }
         },
         {
-            name: 'name',
-            title: 'Name',
+            name: 'title',
+            title: 'Title',
             type: 'string'
         },
         {
-            name: 'price',
-            title: 'Price',
-            type: 'number',
-        },
-        {
-            name: 'details',
-            title: 'Details',
+            name: 'content',
+            title: 'Content',
             type: 'string',
         },
         {

@@ -10,12 +10,13 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const itemThere = state.selectedItems.find(
-        (item) => item.title == action.payload.title
+        (item) => item.title == action.payload.name
       );
 
       if (!itemThere) {
         state.selectedItems.push({
-          title: action.payload.title,
+          img: action.payload.image,
+          title: action.payload.name,
           count: 1,
           price: action.payload.price,
           orderPrice: action.payload.price,
