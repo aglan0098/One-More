@@ -61,79 +61,79 @@ export default function Packages() {
   };
 
   return (
-    <div className="container py-5">
+    <div  className="container py-5">
       {/* ========= Packages ========== */}
 
-      <h2 className="fw-bold text-light text-center mb-5 text-uppercase fs-1">
+      <h2  className="fw-bold text-light text-center mb-5 text-uppercase fs-1">
         Choose your <span style={{ color: `#aa0000` }}>package</span>
       </h2>
 
-      <div className="d-flex justify-content-around w-50 m-auto mb-5">
-        <button className="btn-1 fs-5" onClick={() => filter("training")}>
+      <div  className="d-flex justify-content-around w-50 m-auto mb-5">
+        <button  className="btn-1 fs-5" onClick={() => filter("training")}>
           Trainng
         </button>
-        <button className="btn-2 fs-5" onClick={() => filter("training-diet")}>
+        <button  className="btn-2 fs-5" onClick={() => filter("training-diet")}>
           Training & Diet
         </button>
       </div>
 
       {filterd == "training" && (
-        <div className="row gap-4 bg-danger p-3">
-          <div className="col bg-light py-3 rounded fs-5 text-center">
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+        <div  className="row gap-4 bg-danger p-3">
+          <div  className="col bg-light py-3 rounded fs-5 text-center">
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Aglan
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
             <button
-              className="btn-1 my-3"
+               className="btn-1 my-3"
               onClick={() => updateSelected("package1", 20)}
             >
               Select
             </button>
           </div>
-          <div className="col bg-light py-3 rounded fs-5 text-center">
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
-              Mohamed
+          <div  className="col bg-light py-3 rounded fs-5 text-center">
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+              Mina
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
-              Aglan
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+              Magdy
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
-              Mohamed
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+              Shoukry
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
             <button
-              className="btn-2 my-3"
+               className="btn-2 my-3"
               onClick={() => updateSelected("package2", 50)}
             >
               Select
             </button>
           </div>
-          <div className="col bg-light py-3 rounded fs-5 text-center">
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+          <div  className="col bg-light py-3 rounded fs-5 text-center">
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Aglan
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
             <button
-              className="btn-1 my-3"
+               className="btn-1 my-3"
               onClick={() => updateSelected("package3", 100)}
             >
               Select
@@ -143,58 +143,58 @@ export default function Packages() {
       )}
 
       {filterd == "training-diet" && (
-        <div className="row gap-4 bg-success p-3">
-          <div className="col bg-light py-3 rounded fs-5 text-center">
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+        <div  className="row gap-4 bg-success p-3">
+          <div  className="col bg-light py-3 rounded fs-5 text-center">
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Aglan
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
 
-            <button className="btn-1 my-3">Select</button>
+            <button  className="btn-1 my-3">Select</button>
           </div>
-          <div className="col bg-light py-3 rounded fs-5 text-center">
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+          <div  className="col bg-light py-3 rounded fs-5 text-center">
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Aglan
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
-            <button className="btn-2 my-3">Select</button>
+            <button  className="btn-2 my-3">Select</button>
           </div>
-          <div className="col bg-light py-3 rounded fs-5 text-center">
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+          <div  className="col bg-light py-3 rounded fs-5 text-center">
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Aglan
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
-            <p className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
+            <p  className="pb-3" style={{ borderBottom: `1px solid #aa0000` }}>
               Mohamed
             </p>
-            <button className="btn-1 my-3">Select</button>
+            <button  className="btn-1 my-3">Select</button>
           </div>
         </div>
       )}
 
       {/* =============== Additional Features ======= */}
-      <div className="container text-light">
+      <div  className="container text-light">
         {additionalFeatures.map((element) => (
           <>
             <input
@@ -210,9 +210,9 @@ export default function Packages() {
       </div>
 
       {/* ========== Total Cost ============== */}
-      <div className="container text-light bg-light text-dark p-4">
-        <h2 className="text-center text-uppercase fw-bold">
-          Selected <span className="text-danger">Package</span>
+      <div  className="container text-light bg-light text-dark p-4">
+        <h2  className="text-center text-uppercase fw-bold">
+          Selected <span  className="text-danger">Package</span>
         </h2>
         <h4>Package:  {selectedPackage.name}</h4>
         <h4>
@@ -225,7 +225,7 @@ export default function Packages() {
             )}
         </h4>
 
-        <button className="btn btn-outline-success mt-4 fw-bold"><i class="fs-2 bx bxl-whatsapp bx-flip-horizontal bx-tada"></i></button>
+        <button  className="btn btn-outline-success mt-4 fw-bold"><i class="fs-2 bx bxl-whatsapp bx-flip-horizontal bx-tada"></i></button>
         
       </div>
     </div>

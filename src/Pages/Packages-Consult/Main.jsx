@@ -13,7 +13,7 @@ export default function About() {
       <Header title={"TRAIN"} img={inGYM} />
 
       {/* =============== Switch =============== */}
-      <div className="container-fluid">
+      <div  className="container-fluid">
         <Split
           leftTitle={"Packages"}
           leftImg={inGYM}
@@ -25,7 +25,7 @@ export default function About() {
       </div>
 
       {/* ================ Content ============ */}
-      <div className="bg-dark">
+      <div  className="bg-dark">
         <Outlet />
       </div>
     </>

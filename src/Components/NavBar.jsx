@@ -14,30 +14,30 @@ export default function DefaultNavbar() {
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="#home">
-            Coach <span className="text-danger fw-bold">ELAM</span>
+            Coach <span  className="text-danger fw-bold">ELAM</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
-              <NavLink to="/home" className="nav-link pe-5 py-0">
+            <Nav  className="ms-auto">
+              <NavLink to="/home"  className="nav-link pe-5 py-0">
                 Home
               </NavLink>
               <NavLink
                 to="/packages&consultaion"
-                className="nav-link pe-5 py-0"
+                 className="nav-link pe-5 py-0"
               >
                 Packages
               </NavLink>
-              <NavLink to="/articles" className="nav-link pe-5 py-0">
+              <NavLink to="/articles"  className="nav-link pe-5 py-0">
                 Articles
               </NavLink>
-              <NavLink to="/products" className="nav-link pe-5 py-0">
+              <NavLink to="/products"  className="nav-link pe-5 py-0">
                 Products
               </NavLink>
-              <NavLink to="/cart" className="nav-link pe-5 py-0">
-                <i className="bx bx-cart bx-sm position-relative px-1">
+              <NavLink to="/cart"  className="nav-link pe-5 py-0">
+                <i  className="bx bx-cart bx-sm position-relative px-1">
                   <span
-                    className="bg-danger text-light rounded-circle position-absolute start-100 translate-middle badge"
+                     className="bg-danger text-light rounded-circle position-absolute start-100 translate-middle badge"
                     id="cartNum"
                   >
                     {cartNum}
