@@ -7,7 +7,7 @@ export default {
             name: 'image',
             title: 'Image',
             type: 'array',
-            of: [{type: 'image'}],
+            of: [{ type: 'image' }],
             options: {
                 hotspot: true,
             }
@@ -26,6 +26,16 @@ export default {
             name: 'category',
             title: 'Category',
             type: 'string',
+            options: {
+                list: [
+                    { title: 'اصابات', value: 'اصابات' },
+                    { title: 'مكملات غذائيه', value: 'مكملات غذائيه' },
+                    { title: 'نصائح غذائيه', value: 'نصائح غذائيه' },
+                    { title: 'تغذيه الحوامل', value: 'تغذيه الحوامل' },
+                    { title: 'السكر', value: 'السكر' },
+                    { title: 'خرافات', value: 'خرافات' },
+                ]
+            }
         }
     ]
 }

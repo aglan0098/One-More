@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "../../Components/NavBar";
+import About from "../../Components/About";
 import Split from "../../Components/Split";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,22 +8,28 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
-import video from "../../assets/images/videoplayback.mp4";
+import video from "../../assets/images/video.mp4";
 import back from "../../assets/images/background.jpg";
 
 // ------- success images ---------
-import img1 from "../../assets/images/1.jpeg";
-import img2 from "../../assets/images/2.jpeg";
-import img3 from "../../assets/images/3.jpeg";
+import img1 from "../../assets/images/stories/1.jpg";
+import img2 from "../../assets/images/stories/2.jpg";
+import img3 from "../../assets/images/stories/3.jpg";
+import img4 from "../../assets/images/stories/4.jpeg";
+import img5 from "../../assets/images/stories/5.jpeg";
+import img6 from "../../assets/images/stories/6.jpg";
+import img7 from "../../assets/images/stories/7.jpg";
+import img8 from "../../assets/images/stories/8.jpg";
 
-import products from "../../assets/images/products.jpeg";
-import articles from "../../assets/images/articles.jpeg";
-import inGYM from "../../assets/images/inGYM.jpeg";
-import online from "../../assets/images/online.jpeg";
+import products from "../../assets/images/products2.jpg";
+import articles from "../../assets/images/articles.jpg";
+import inGYM from "../../assets/images/inGYM2.jpg";
+import online from "../../assets/images/online.jpg";
 
 // ------- Icons ---------
 import { BsArrowRight } from "react-icons/bs";
 import { BsArrowLeft } from "react-icons/bs";
+import SuccessCard from "../../Components/SuccessCard";
 
 export default function Home() {
   return (
@@ -39,50 +46,15 @@ export default function Home() {
         </video>
         <div className="overlay"></div>
         <h1
-          className="hack-font-lg text-uppercase text-center text-light fw-bold position-relative"
+          className="header-title text-uppercase text-center text-light fw-bold position-relative p-4"
           style={{ zIndex: `2` }}
         >
-          Do MOre
+          Unleash Your <span className="red">Power</span>
         </h1>
       </div>
 
       {/* -----------About ------------ */}
-      <div className="container-fluid dark text-light px-4 py-4" id="about">
-        <div className="row pb-5" style={{ borderBottom: `4px solid #dc3545` }}>
-          <div className="col-md-7">
-            <img src={online} className="w-100" />
-          </div>
-          <div className="col-md-5 d-flex flex-column justify-content-center">
-            <h3 className="mb-4 hack-font-md">
-              Coach <span className="text-danger fw-bold">ESLAM</span>
-            </h3>
-            <p className="lead">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-              hic autem enim incidunt at asperiores sit id animi, officiis,
-              nisi, aspernatur culpa dolores repellat. Necessitatibus nostrum
-              officiis voluptas sint, sunt fugit optio voluptatem veniam iusto.
-              Amet illo hic excepturi magni?
-            </p>
-          </div>
-        </div>
-        <div className="row pt-5">
-          <div className="col-md-5 d-flex flex-column justify-content-center">
-            <h3 className="hack-font-md">
-              Coach <span className="text-danger fw-bold">SAMA</span>
-            </h3>
-            <p className="lead py-4">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-              hic autem enim incidunt at asperiores sit id animi, officiis,
-              nisi, aspernatur culpa dolores repellat. Necessitatibus nostrum
-              officiis voluptas sint, sunt fugit optio voluptatem veniam iusto.
-              Amet illo hic excepturi magni?
-            </p>
-          </div>
-          <div className="col-md-7">
-            <img src={inGYM} className="w-100" />
-          </div>
-        </div>
-      </div>
+      <About />
 
       {/* -------------success stories ---------- */}
       <div
@@ -119,180 +91,40 @@ export default function Home() {
             }}
             modules={[Navigation]}
             loop={true}
+            slidesPerView={1}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+              992: {
+                slidesPerView: 3,
+              },
+            }}
             className="mySwiper"
           >
             <SwiperSlide>
-              <div className="row gap-3 py-5 px-5">
-                <div className="col-md bg-light rounded py-3">
-                  <div
-                    className="d-flex justify-content-between"
-                    style={{ borderBottom: `3px solid #aa0000` }}
-                  >
-                    <div className="info pb-1">
-                      <h5 className="fw-bold">
-                        WEEKS: <span className="text-danger fw-bold">13</span>
-                      </h5>
-                      <h6 className="fw-bold">
-                        Age: <span className="text-danger fw-bold">20</span>
-                      </h6>
-                    </div>
-                    <div className="logo">Logo</div>
-                  </div>
-                  <img src={img1} className="w-100" />
-                </div>
-                <div className="col-md bg-light rounded py-3">
-                  <div
-                    className="d-flex justify-content-between"
-                    style={{ borderBottom: `3px solid #aa0000` }}
-                  >
-                    <div className="info">
-                      <div className="info pb-1">
-                        <h5 className="fw-bold">
-                          WEEKS: <span className="text-danger fw-bold">13</span>
-                        </h5>
-                        <h6 className="fw-bold">
-                          Age: <span className="text-danger fw-bold">20</span>
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="logo">Logo</div>
-                  </div>
-                  <img src={img2} className="w-100" />
-                </div>
-                <div className="col-md bg-light rounded py-3">
-                  <div
-                    className="d-flex justify-content-between"
-                    style={{ borderBottom: `3px solid #aa0000` }}
-                  >
-                    <div className="info pb-1">
-                      <h5 className="fw-bold">
-                        WEEKS: <span className="text-danger fw-bold">13</span>
-                      </h5>
-                      <h6 className="fw-bold">
-                        Age: <span className="text-danger fw-bold">20</span>
-                      </h6>
-                    </div>
-                    <div className="logo">Logo</div>
-                  </div>
-                  <img src={img3} className="w-100" />
-                </div>
-              </div>
+              <SuccessCard age={24} img={img1} />
             </SwiperSlide>
-
             <SwiperSlide>
-              <div className="row gap-3 py-5 px-5">
-                <div className="col-md bg-light rounded py-3">
-                  <div
-                    className="d-flex justify-content-between"
-                    style={{ borderBottom: `3px solid #aa0000` }}
-                  >
-                    <div className="info pb-1">
-                      <h5 className="fw-bold">
-                        WEEKS: <span className="text-danger fw-bold">13</span>
-                      </h5>
-                      <h6 className="fw-bold">
-                        Age: <span className="text-danger fw-bold">20</span>
-                      </h6>
-                    </div>
-                    <div className="logo">Logo</div>
-                  </div>
-                  <img src={img1} className="w-100" />
-                </div>
-                <div className="col-md bg-light rounded py-3">
-                  <div
-                    className="d-flex justify-content-between"
-                    style={{ borderBottom: `3px solid #aa0000` }}
-                  >
-                    <div className="info">
-                      <div className="info pb-1">
-                        <h5 className="fw-bold">
-                          WEEKS: <span className="text-danger fw-bold">13</span>
-                        </h5>
-                        <h6 className="fw-bold">
-                          Age: <span className="text-danger fw-bold">20</span>
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="logo">Logo</div>
-                  </div>
-                  <img src={img2} className="w-100" />
-                </div>
-                <div className="col-md bg-light rounded py-3">
-                  <div
-                    className="d-flex justify-content-between"
-                    style={{ borderBottom: `3px solid #aa0000` }}
-                  >
-                    <div className="info pb-1">
-                      <h5 className="fw-bold">
-                        WEEKS: <span className="text-danger fw-bold">13</span>
-                      </h5>
-                      <h6 className="fw-bold">
-                        Age: <span className="text-danger fw-bold">20</span>
-                      </h6>
-                    </div>
-                    <div className="logo">Logo</div>
-                  </div>
-                  <img src={img3} className="w-100" />
-                </div>
-              </div>
+              <SuccessCard age={22} img={img2} />
             </SwiperSlide>
-
             <SwiperSlide>
-              <div className="row gap-3 py-5 px-5">
-                <div className="col-md bg-light rounded py-3">
-                  <div
-                    className="d-flex justify-content-between"
-                    style={{ borderBottom: `3px solid #aa0000` }}
-                  >
-                    <div className="info pb-1">
-                      <h5 className="fw-bold">
-                        WEEKS: <span className="text-danger fw-bold">13</span>
-                      </h5>
-                      <h6 className="fw-bold">
-                        Age: <span className="text-danger fw-bold">20</span>
-                      </h6>
-                    </div>
-                    <div className="logo">Logo</div>
-                  </div>
-                  <img src={img1} className="w-100" />
-                </div>
-                <div className="col-md bg-light rounded py-3">
-                  <div
-                    className="d-flex justify-content-between"
-                    style={{ borderBottom: `3px solid #aa0000` }}
-                  >
-                    <div className="info">
-                      <div className="info pb-1">
-                        <h5 className="fw-bold">
-                          WEEKS: <span className="text-danger fw-bold">13</span>
-                        </h5>
-                        <h6 className="fw-bold">
-                          Age: <span className="text-danger fw-bold">20</span>
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="logo">Logo</div>
-                  </div>
-                  <img src={img2} className="w-100" />
-                </div>
-                <div className="col-md bg-light rounded py-3">
-                  <div
-                    className="d-flex justify-content-between"
-                    style={{ borderBottom: `3px solid #aa0000` }}
-                  >
-                    <div className="info pb-1">
-                      <h5 className="fw-bold">
-                        WEEKS: <span className="text-danger fw-bold">13</span>
-                      </h5>
-                      <h6 className="fw-bold">
-                        Age: <span className="text-danger fw-bold">20</span>
-                      </h6>
-                    </div>
-                    <div className="logo">Logo</div>
-                  </div>
-                  <img src={img3} className="w-100" />
-                </div>
-              </div>
+              <SuccessCard age={23} img={img3} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <SuccessCard age={24} img={img4} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <SuccessCard age={25} img={img5} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <SuccessCard age={22} img={img6} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <SuccessCard age={27} img={img7} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <SuccessCard age={23} img={img8} />
             </SwiperSlide>
           </Swiper>
         </div>
@@ -329,9 +161,9 @@ export default function Home() {
         <div className="overlay"></div>
         <div className="row p-5 w-100" style={{ zIndex: `2` }}>
           <div className="col-md-4 d-flex align-items-center">
-            <h3 className="hack-font-md px-3 py-5 fw-bold text-uppercase border-left red">
+            <p className="hack-font-md px-3 py-5 fw-bold text-uppercase border-left red">
               What Our Parteners Say
-            </h3>
+            </p>
           </div>
           <div className="col-md-8 d-flex align-items-center px-3 py-5 fs-5">
             <button className="d-none d-lg-block btn-1 pre-testi">
@@ -349,54 +181,69 @@ export default function Home() {
             >
               <SwiperSlide>
                 <div
-                  className="p-5 pb-2 m-auto text-center rounded"
+                  className="p-4 pb-2 m-auto text-center rounded"
                   style={{
                     width: `95%`,
                     background: `rgba(255, 255, 255, .5)`,
                   }}
                 >
                   <q>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptate nobis quisquam repellendus fugit odit vitae
-                    mollitia sunt quis iure aliquid corporis dicta reiciendis
-                    laborum nihil, at tempore veniam adipisci omnis.
+                    I achieved remarkable results and surpassed my weight loss
+                    goals. Their personalized training programs and motivation
+                    pushed me to discover my true potential.
                   </q>
-                  <p className="text-end mt-4 fst-italic">- Mohamed Aglan</p>
+                  <p className="text-end mt-3 fst-italic">- Mohamed Aglan</p>
                 </div>
               </SwiperSlide>
 
               <SwiperSlide>
                 <div
-                  className="p-5 pb-2 m-auto text-center rounded"
+                  className="p-4 pb-2 m-auto text-center rounded"
                   style={{
                     width: `95%`,
                     background: `rgba(255, 255, 255, .5)`,
                   }}
                 >
                   <q>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptate nobis quisquam repellendus fugit odit vitae
-                    mollitia
+                    My fitness coach's expertise and tailored approach helped me
+                    break through plateaus, gain muscle, and improve my overall
+                    fitness.
                   </q>
-                  <p className="text-end mt-4 fst-italic">- Abdelrazik</p>
+                  <p className="text-end mt-3 fst-italic">- Abdelrazik</p>
                 </div>
               </SwiperSlide>
 
               <SwiperSlide>
                 <div
-                  className="p-5 pb-2 m-auto text-center rounded"
+                  className="p-4 pb-2 m-auto text-center rounded"
                   style={{
                     width: `95%`,
                     background: `rgba(255, 255, 255, .5)`,
                   }}
                 >
                   <q>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptate nobis quisquam repellendus fugit odit vitae
-                    mollitia sunt quis iure aliquid corporis dicta reiciendis
-                    laborum nihil.
+                    Training with my fitness coach has been a delight. Their
+                    passion and knowledge created a challenging yet achievable
+                    program.
                   </q>
-                  <p className="text-end mt-4 fst-italic">- Mina</p>
+                  <p className="text-end mt-3 fst-italic">- Mina</p>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div
+                  className="p-4 pb-2 m-auto text-center rounded"
+                  style={{
+                    width: `95%`,
+                    background: `rgba(255, 255, 255, .5)`,
+                  }}
+                >
+                  <q>
+                    Grateful for my fitness coach's dedication and ability to
+                    push me beyond my limits. Their positive energy and
+                    encouragement kept me committed.
+                  </q>
+                  <p className="text-end mt-3 fst-italic">- Mohamed El-Nahas</p>
                 </div>
               </SwiperSlide>
             </Swiper>

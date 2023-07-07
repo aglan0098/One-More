@@ -7,12 +7,14 @@ export default function ArticleCard(props) {
   const { image, title } = article;
   return (
     <>
-      <div className="rounded articleCard gray">
-        <img src={urlFor(image[0])} className="w-100 h-50" />
-        <div className="px-2" style={{ borderTop: `3px solid #aa0000` }}>
-          <h3 className="fw-bold mt-3 mb-4">{title}</h3>
+      <div className="Card gray">
+        <div className="card-img">
+          <img src={urlFor(image[0])} className="w-100" />
+        </div>
+        <h4 className="fw-bold my-3 px-2">{title}</h4>
+        <div className="text-end">
           <Link to={`/articles/${title}`} state={article}>
-            <button className="btn-1 fw-bold fs-5">Read</button>
+            <button className="btn-1 fw-bold read-btn">Read</button>
           </Link>
         </div>
       </div>

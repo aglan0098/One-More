@@ -14,16 +14,39 @@ export const cartSlice = createSlice({
       );
 
       if (!itemThere) {
-        state.selectedItems.push({
-          img: action.payload.image,
-          title: action.payload.name,
-          count: 1,
-          price: action.payload.price,
-          orderPrice: action.payload.price,
-        });
-        state.cartNum += 1;
+        if (action.payload.features) {
+          state.selectedItems.push({
+            img: action.payload.image,
+            title: action.payload.name,
+            count: 1,
+            price: action.payload.price,
+            features: action.payload.features,
+            orderPrice:
+              action.payload.price +
+              action.payload.features
+                .map((item) => {
+                  return item.price;
+                })
+                .reduce((accumulator, price) => {
+                  if (typeof price === "number") {
+                    return accumulator + price;
+                  }
+                  return accumulator;
+                }, 0),
+          });
+          state.cartNum += 1;
+        } else {
+          state.selectedItems.push({
+            img: action.payload.image,
+            title: action.payload.name,
+            count: 1,
+            price: action.payload.price,
+            orderPrice: action.payload.price,
+          });
+          state.cartNum += 1;
+        }
       } else {
-         state.showModal = true;
+        state.showModal = true;
       }
     },
     modalClose: (state, action) => {

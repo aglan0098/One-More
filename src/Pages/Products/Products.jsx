@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 // ----------- Sanity --------------
 import { client } from "../../../lib/client";
 // ---------- Images -------------
-import inGYM from "../../assets/images/inGYM.jpeg";
-import online from "../../assets/images/online.jpeg";
+import header from "../../assets/images/products.jpg";
+
 // ---------- Components ----------
 import SecondNavbar from "../../Components/SecondNavbar";
 import Header from "../../Components/Header";
 import ProductCard from "../../Components/ProductCard";
+import Insta from "../../Components/Insta";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -16,41 +17,34 @@ import Modal from "react-bootstrap/Modal";
 
 export default function Products() {
   // ============== connect with sanity ===========
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     client
       .fetch('*[_type == "product"]')
-      .then((data) => setProducts(data))
+      .then((data) => {
+        setProducts(data);
+        setLoading(false);
+      })
       .catch(console.error);
   }, []);
+
+  useEffect(() => setFiltered(products), [products]);
 
   // ================= filter =========
   const allcategories = [
     "الكل",
-    "مكملات بروتين",
-    "فيتامينات ومعادن",
-    "احماض امينيه",
-    "مكملات طاقه",
-    "مكملات كربوهيدرات",
-    "حوارق دهون",
-    "الماس جينز وزياده الوزن",
-    "مكملات كرياتين",
-    "محفزات تستسترون",
-    // ...new Set(products.map((product, index) => product.category)),
+    ...new Set(products.map((product, index) => product.category)),
   ];
 
   const filter = (category) => {
     if (category === "الكل") {
-      client
-      .fetch('*[_type == "product"]')
-      .then((data) => setProducts(data))
-      .catch(console.error);
+      setFiltered(products);
       return;
     }
-    setProducts(
-      products.filter((product) => product.category === category)
-    );
+    setFiltered(products.filter((product) => product.category === category));
   };
 
   // ======== Modal Alert ===========
@@ -62,50 +56,46 @@ export default function Products() {
     <>
       <SecondNavbar />
       {/* ---------- Header ------------ */}
-      <Header title={"#PRODUCTS"} img={inGYM} />
+      <Header title={"#PRODUCTS"} img={header} />
 
       {/* =========== Content ========= */}
-      <div className="container-fluid d-flex py-5">
-        <div className="row py-4">
-          <div className="filter-container col-lg-2 gray-dark px-0 text-center">
-            {allcategories.map((category, index) => (
-              <button
-                className="filterBtn d-lg-block btn-2 fw-bold text-capitalize mb-2"
-                onClick={() => filter(category)}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+      <h2 className="hack-font-lg fw-bold text-center text-dark my-2">#SHOP</h2>
+      {!loading ? (
+        <div className="container-fluid py-4">
+          <div className="row d-flex">
+            <div className="filter-container col-lg-2 px-0 text-center">
+              {allcategories.map((category, index) => (
+                <button
+                  key={category}
+                  className="filterBtn d-lg-block btn-2 fw-bold text-capitalize"
+                  onClick={() => filter(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
 
-          <div className="col-lg-10">
-            <div className="bd-grid">
-              {products &&
-                products.map((product) => (
-                  <ProductCard product={product} />
-                ))}
+            <div className="col-lg-10">
+              <div className="bd-grid">
+                {filtered &&
+                  filtered.map((product) => (
+                    <ProductCard product={product} key={product.id} />
+                  ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="container">
+          <div className="d-flex flex-column justify-content-center align-items-center my-5 py-5 bg-light">
+            <p className="fs-1 fw-bold mb-4">Loading...</p>
+            <i className="bx bx-loader-circle fs-1"></i>
+          </div>
+        </div>
+      )}
+
       {/* =========== Insta Images ========= */}
-      <div className="images">
-        <h2 className="hack-font-lg fw-bold text-center text-dark">#ONE_MORE</h2>
-        <div className="container m-auto gap-3 row py-4 px-0">
-          <div className="col-md px-0" style={{ overflow: `hidden` }}>
-            <img src={online} className="h-100 insta-img" />
-          </div>
-
-          <div className="col-md px-0">
-            <div className="mb-3 bg-primary" style={{ overflow: `hidden` }}>
-              <img src={inGYM} className="w-100 insta-img" />
-            </div>
-            <div style={{ overflow: `hidden` }}>
-              <img src={online} className="w-100 insta-img" />
-            </div>
-          </div>
-        </div>
-      </div>
+      <Insta />
 
       {/* =========== Modal ============ */}
       <Modal show={showModal} onHide={handleClose}>

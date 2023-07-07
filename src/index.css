@@ -1,4 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/hackney");
+@import url("https://fonts.cdnfonts.com/css/bullpen");
 
 * {
   transition: all 0.3s;
@@ -7,6 +8,7 @@
 :root {
   --red-color: #9d0208;
   --black-color: #000;
+  --img-height: 50%;
 }
 
 /* ========== Base =========== */
@@ -39,6 +41,19 @@ a:hover {
 .hack-font-lg {
   font-family: "Hackney", "sans-serif";
   font-size: 5rem;
+}
+
+.header-title {
+  font-family: "Hackney", "sans-serif";
+  font-size: 6rem;
+}
+
+.soul-font {
+  font-family: "Bullpen Hv", sans-serif;
+}
+
+.bottom-border {
+  border-bottom: 1px solid #aa0000;
 }
 
 /* --------- bg ---------- */
@@ -90,10 +105,11 @@ a:hover {
   z-index: 1;
 }
 
+/* ----- Buttons ----- */
 .btn-1 {
   background-color: var(--red-color);
   color: #fff;
-  padding: 10px 40px 10px 40px;
+  padding: 10px 40px;
   border: 2px solid var(--red-color);
 }
 
@@ -105,7 +121,7 @@ a:hover {
 .btn-2 {
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
-  padding: 10px 40px 10px 40px;
+  padding: 10px 40px;
   border: 2px solid #000;
 }
 
@@ -175,19 +191,11 @@ a:hover {
 
 /* ============= InGYM Page ========= */
 .reason {
-  position: relative;
-  font-weight: 900 !important;
   font-size: 5em;
   letter-spacing: 0.05em;
   line-height: 1.2;
   margin-bottom: 0.5em;
   font-family: "Hackney", "sans-serif";
-}
-
-@media screen and (max-width: 768px) {
-  .reason {
-    font-size: 3rem;
-  }
 }
 
 .reason .text {
@@ -210,10 +218,13 @@ a:hover {
 .filter-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  background-color: #000;
+  margin-bottom: 25px;
 }
 
 .filterBtn {
-  margin: 0 5px;
+  margin: 0;
+  border: 1px solid #595959;
 }
 
 @media screen and (min-width: 992px) {
@@ -222,7 +233,6 @@ a:hover {
   }
   .filterBtn {
     width: 100%;
-    margin: 0px;
   }
 }
 
@@ -239,10 +249,37 @@ a:hover {
   }
 }
 
-.productCard .detailsBtn {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.Card {
+  height: fit-content;
+  position: relative;
+  box-shadow: 13px 15px 17px -10px rgba(117, 116, 116, 0.89);
+  border-radius: 9px;
+}
+
+.card-img {
+  height: 20svh;
+  border-bottom: 4px solid #aa0000;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+  .card-img {
+    height: 30svh;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .card-img {
+    height: 40svh;
+  }
+}
+
+.card-img img {
+  object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+}
+
+.Card .detailsBtn {
   padding: 12px;
   border-radius: 0px 9px;
   color: var(--red-color);
@@ -250,15 +287,12 @@ a:hover {
   transition: all 0.4s;
 }
 
-.productCard .detailsBtn:hover {
+.Card .detailsBtn:hover {
   background-color: var(--red-color);
   color: #fff;
 }
 
-.productCard .cartBtn {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.Card .cartBtn {
   padding: 12px;
   border-radius: 9px 0px;
   color: var(--black-color);
@@ -266,7 +300,41 @@ a:hover {
   transition: all 0.4s;
 }
 
-.productCard .cartBtn:hover {
+.Card .cartBtn:hover {
   background-color: var(--black-color);
   color: #fff;
+}
+
+.Card .read-btn {
+  border-radius: 9px 0;
+}
+
+/* =================== Responsive ================= */
+@media screen and (max-width: 768px) {
+  .hack-font-md {
+    font-size: 1.7rem;
+  }
+
+  .hack-font-lg {
+    font-size: 3rem;
+  }
+
+  .reason {
+    font-size: 3rem;
+  }
+  .btn-1 {
+    padding: 8px 12px;
+  }
+
+  .btn-2 {
+    padding: 8px 12px;
+  }
+
+  .reason .text {
+    font-size: 0.8em;
+  }
+}
+
+.product-cart-img {
+  object-fit: cover;
 }

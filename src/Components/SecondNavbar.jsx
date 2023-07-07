@@ -12,12 +12,12 @@ export default function DefaultNavbar() {
     <>
       <Navbar variant="dark" expand="lg" id="navbar">
         <Container>
-          <Navbar.Brand href="#home" className="fw-bold fs-4">
-            Coach <span className="red fw-bold">ELAM</span>
+          <Navbar.Brand href="#home" className="fw-bold hack-font fs-1 py-0">
+            Coach <span className="red fw-bold">Eslam</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
+            <Nav className="ms-auto soul-font">
               <NavLink to="/" className="nav-link px-4 py-3 fs-5">
                 Home
               </NavLink>
@@ -36,8 +36,8 @@ export default function DefaultNavbar() {
               >
                 Online
               </NavLink>
-              <NavLink to="/cart" className="nav-link px-4 py-3 fs-5">
-                <i className="bx bx-cart bx-sm position-relative px-1">
+              <NavLink to="/cart" className="nav-link px-3 fs-5">
+                <i className="bx bx-cart bx-sm position-relative pt-2 px-1 mt-2">
                   <span
                     className="bg-danger text-light rounded-circle position-absolute start-100 translate-middle badge"
                     id="cartNum"

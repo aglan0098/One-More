@@ -1,21 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SecondNavbar from "../../Components/SecondNavbar";
 import Header from "../../Components/Header";
-import inGYM from "../../assets/images/inGYM.jpeg";
+import CartItem from "../../Components/CartItem";
+
+import cart from "../../assets/images/cart.jpg";
 import empty from "../../assets/images/emptyCart.jpg";
 
-import { urlFor } from "../../../lib/client";
 import ReactWhatsapp from "react-whatsapp";
 
 // ========= Redux =========
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  increaseAmount,
-  decreaseAmount,
-  removeFromCart,
-} from "../../redux/cartSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { increaseAmount, decreaseAmount } from "../../redux/cartSlice";
 
 export default function Cart() {
   const { selectedItems } = useSelector((state) => state.cart);
@@ -29,10 +25,6 @@ export default function Cart() {
     dispatch(decreaseAmount(title));
   };
 
-  const remove = (title) => {
-    dispatch(removeFromCart(title));
-  };
-
   // ======== Handle Form Data ============
   const [clientData, setClientData] = useState({
     firstName: "",
@@ -41,15 +33,36 @@ export default function Cart() {
     phone: "",
   });
 
+  const formatClientData = (clientData) => {
+    return `Name: ${clientData.firstName} ${clientData.lastName} \nEmail: ${clientData.email}\nPhone: ${clientData.phone}`;
+  };
+
+  const formatFeatures = (features) => {
+    if (Array.isArray(features) && features.length > 0) {
+      const featureNames = features.map((feature) => feature.name);
+      return `Features: ${featureNames.join(", ")}`;
+    }
+    return "";
+  };
+
   const inputChangeHandler = (e) => {
+    e.preventDefault();
     const { name, value } = e.target;
     setClientData({ ...clientData, [name]: value });
   };
 
+  const [formEmpty, setFormEmpty] = useState(true);
+
+  useEffect(() => {
+    if (Object.values(clientData).includes("")) {
+      setFormEmpty(true);
+    } else setFormEmpty(false);
+  }, [clientData]);
+
   return (
     <>
       <SecondNavbar />
-      <Header title={"#Your Cart"} img={inGYM} />
+      <Header title={"#Your Cart"} img={cart} />
 
       {(selectedItems.length && (
         <div className="container-fluid py-5 bg-dark">
@@ -62,68 +75,48 @@ export default function Cart() {
               <h3 className="text-center fw-bold my-4 text-light">
                 Your Order
               </h3>
-              {selectedItems.map((item) => (
-                <div
-                  className="d-flex mb-3 rounded"
-                  style={{ backgroundColor: `#ddd` }}
-                >
-                  <div className="col-5">
-                    {item.img && (
-                      <img src={urlFor(item.img[0])} className="w-100 h-100" />
-                    )}
-                  </div>
-                  <div className="col-7 p-2 position-relative">
-                    <p className="fs-5">
-                      Product: <span className="red fw-bold">{item.title}</span>
-                    </p>
-                    <p className="fs-5">
-                      Price: <span className="fw-bold">{item.price}</span>
-                    </p>
+              {selectedItems.map((item) =>
+                item.title.toLowerCase().includes("diet") ? (
+                  <CartItem item={item} />
+                ) : (
+                  <CartItem item={item}>
                     <div className="fs-5">
                       Count:{" "}
                       <button
-                        className="btn btn-danger"
+                        className="btn btn-danger px-2 py-1"
                         onClick={() => decrease(item)}
                       >
                         <i className="bx bx-minus" />
-                      </button>{" "}
-                      <span className="mx-4 fs-4">{item.count}</span>
+                      </button>
+                      <span className="mx-2 mx-md-3 fs-4">{item.count}</span>
                       <button
-                        className="btn btn-success"
+                        className="btn btn-success px-2 py-1"
                         onClick={() => increase(item)}
                       >
                         <i className="bx bx-plus" />
                       </button>
                     </div>
-                    <p className="fs-5 mt-2">
-                      Total Price:{" "}
-                      <span className="red fw-bold">{item.orderPrice}</span>
-                    </p>
 
-                    <button
-                      className="btn btn-danger position-absolute"
-                      style={{ right: `5px`, bottom: `5px` }}
-                      onClick={() => remove(item)}
-                    >
-                      <i class="bx bxs-trash-alt" />
-                    </button>
-                  </div>
-                </div>
-              ))}
+                    <div>
+                      <p className="fs-5 mt-2">
+                        Total Price:{" "}
+                        <span className="red fw-bold">{item.orderPrice}</span>
+                      </p>
+                    </div>
+                  </CartItem>
+                )
+              )}
             </div>
             <div className="col-lg-6">
               <h3 className="text-center fw-bold my-4 text-light">Your Info</h3>
               <form
-                // action={FORM_ENDPOINT}
                 method="POST"
                 target="_blank"
                 className="py-3 px-4 container bg-light rounded"
               >
                 <div className="my-2 row">
                   <div className="col-6">
-                    <label htmlFor="firstName">
-                      FIRST NAME: <span className="text-danger fs-5">*</span>
-                    </label>
+                    <label htmlFor="firstName">FIRST NAME:</label>
                     <br />
                     <input
                       type="text"
@@ -134,9 +127,7 @@ export default function Cart() {
                     />
                   </div>
                   <div className="col-6">
-                    <label htmlFor="lastName">
-                      LAST NAME: <span className="text-danger fs-5">*</span>
-                    </label>
+                    <label htmlFor="lastName">LAST NAME:</label>
                     <br />
                     <input
                       type="text"
@@ -150,9 +141,7 @@ export default function Cart() {
 
                 <div className="my-2 row">
                   <div className="col-6">
-                    <label htmlFor="Email">
-                      EMAIL ADDRESS: <span className="text-danger fs-5">*</span>
-                    </label>
+                    <label htmlFor="Email">EMAIL ADDRESS:</label>
                     <br />
                     <input
                       type="email"
@@ -163,14 +152,11 @@ export default function Cart() {
                     />
                   </div>
                   <div className="col-6">
-                    <label htmlFor="phone">
-                      PHONE NUMBER: <span className="text-danger fs-5">*</span>
-                    </label>
+                    <label htmlFor="phone">PHONE NUMBER:</label>
                     <br />
                     <input
                       type="tel"
-                      // pattern="(010 | 011 | 012 | 015){1}[0-9]{8}"
-                      // pattern="[+]{1}[0-9]{11,14}"
+                      pattern="[0-9]{5,14}"
                       name="phone"
                       className="col-12 px-3 py-2"
                       required
@@ -178,48 +164,36 @@ export default function Cart() {
                     />
                   </div>
                 </div>
-
-                <div className="my-2 row">
-                  <div className="col-12">
-                    <label htmlFor="subject">SUBJECT:</label>
-                    <br />
-                    <input
-                      type="text"
-                      name="subject"
-                      className="col-12 px-3 py-2"
-                    />
-                  </div>
-                </div>
-
-                <div className="my-3 row">
-                  <div className="col-12">
-                    <label htmlFor="subject">DESCRIPTION:</label>
-                    <br />
-                    <textarea
-                      placeholder="Your message"
-                      name="message"
-                      className="px-3 py-3 col-12"
-                    />
-                  </div>
-                </div>
+                <input className="d-none" required />
 
                 <div className="my-4">
-                  <button
-                    className="btn-1 rounded fs-5 px-4"
-                    type="submit"
-                    formAction=""
-                  >
+                  {formEmpty ? (
+                    <button
+                      className="btn-1 rounded fs-5 px-4"
+                      type="submit"
+                      formAction=""
+                    >
+                      Order
+                    </button>
+                  ) : (
                     <ReactWhatsapp
-                      number="+201144426901"
-                      message={`Hello World!!! ${
-                        selectedItems.map(element => {
-                          return element.count;
-                        })
-                      }======${JSON.stringify(clientData)}`}
+                      className="btn-2 rounded fs-5 px-4"
+                      number="+201090002058"
+                      message={`Order Details:\n${selectedItems
+                        .map(
+                          (element) =>
+                            `${element.title}: (${
+                              element.count
+                            }) - ${formatFeatures(element.features)}
+                             Price: ${element.orderPrice} EG`
+                        )
+                        .join("\n")}\n\nClient Data:\n${formatClientData(
+                        clientData
+                      )}`}
                     >
                       Order
                     </ReactWhatsapp>
-                  </button>
+                  )}
                 </div>
               </form>
             </div>

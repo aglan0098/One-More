@@ -113,7 +113,7 @@ export default function Consultation() {
           <p className="fs-5">
             <span className="text-danger fw-bold">Email:</span> eslam@gmail.com
             <br />
-            <span className="text-danger fw-bold">phone:</span> 01144426901
+            <span className="text-danger fw-bold">phone:</span> 01090002058
           </p>
         </div>
       </div>
